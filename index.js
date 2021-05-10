@@ -17,7 +17,7 @@ const d = new Date();
 const date = format(d, 'dd-MM-yyyy');
 console.log(date);
 const districtId = 145;
-const age = 18;
+const age = 45;
 const appointmentsListLimit = 2;
 const fun = async ({ message }) => {
 	// console.log(message);
@@ -71,7 +71,7 @@ const fun = async ({ message }) => {
 					});
 				}
 
-				// console.log(dataOfSlot);
+				console.log(dataOfSlot);
 				// console.log('asd');
 
 				// return dataOfSlot;
@@ -81,16 +81,20 @@ const fun = async ({ message }) => {
 			console.log(err);
 		});
 };
-
+let y = null;
 client.on('message', async (message) => {
 	if (message.content.startsWith('*covid')) {
 		fun({ message });
-
-		setInterval(async function () {
+		console.log('asd');
+		y = setInterval(async function () {
 			console.log('asd');
 			fun({ message });
 			// console.log(yeet);
 		}, 300000);
+	}
+	if (message.content.startsWith('*stop')) {
+		clearInterval(y);
+		// console.log('stopped');
 	}
 });
 
