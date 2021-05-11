@@ -16,8 +16,10 @@ const sampleUserAgent =
 const d = new Date();
 const date = format(d, 'dd-MM-yyyy');
 console.log(date);
-const districtId = 145;
-const age = 45;
+// 307: Ernakulam
+
+const districtId = 307;
+const age = 18;
 const appointmentsListLimit = 2;
 const fun = async ({ message }) => {
 	// console.log(message);
@@ -69,6 +71,11 @@ const fun = async ({ message }) => {
 							],
 						},
 					});
+				} else {
+					console.log('asd');
+					message.channel.send(
+						'Nothing found, checking again in 5 mins'
+					);
 				}
 
 				console.log(dataOfSlot);
@@ -94,7 +101,7 @@ client.on('message', async (message) => {
 	}
 	if (message.content.startsWith('*stop')) {
 		clearInterval(y);
-		// console.log('stopped');
+		console.log('stopped');
 	}
 });
 
